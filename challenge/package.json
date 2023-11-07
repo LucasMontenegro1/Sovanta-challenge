@@ -1,0 +1,65 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7.3.1",
+    "express": "^4",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "sqlite3": "^5.1.6"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "test": "mocha"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "model": [
+          "db",
+          "srv"
+        ],
+        "credentials": {
+          "database": "db/my-catalog.db"
+        }
+      },
+      "test": {
+        "db": {
+          "kind": "sqlite",
+          "model": ["db", "srv"],
+          "credentials": {
+            "database": ":memory"
+          }
+        }
+      },
+      "auth": {
+        "kind": "basic",
+        "users": {
+          "user1": {
+            "password": "password1",
+            "roles": [
+              "Admin"
+            ]
+          },
+          "user2": {
+            "password": "password2",
+            "roles": [
+              "User"
+            ]
+          }
+        }
+      }
+    }
+  }
+  
+}
