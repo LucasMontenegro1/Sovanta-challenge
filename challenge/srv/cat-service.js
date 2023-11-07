@@ -11,7 +11,7 @@ module.exports = async (srv) => {
         const newProduct = {
             ID: uuidv4(),
             name: name,
-            praice: price
+            price: price
         };
 
         console.log('Creating new product:', newProduct);
